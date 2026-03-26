@@ -60,7 +60,7 @@ if ($path === '/tournaments') {
 }
 
 if ($path === '/rankings') {
-    $apiUrl = 'https://api.tablesoccer.org/cms.rankings?tour=78';
+    $apiUrl = 'https://api.tablesoccer.org/cms.rankings';
 
     $ch = curl_init($apiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
