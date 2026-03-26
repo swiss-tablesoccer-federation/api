@@ -59,7 +59,7 @@ if ($path === '/tournaments') {
     exit;
 }
 
-if ($path === '/rankings') {
+if (preg_match('#^/rankings/([^/]+)$#', $path, $matches)) {
     $apiUrl = 'https://api.tablesoccer.org/cms.rankings';
     $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
     $categoryMap = [
@@ -67,7 +67,7 @@ if ($path === '/rankings') {
         'OD' => 312, 'JD' => 313, 'WD' => 314, 'SD' => 315,
         'MX' => 316, 'OC' => 322,
     ];
-    $categoryKey = isset($_GET['category']) ? strtoupper((string) $_GET['category']) : '';
+    $categoryKey = strtoupper($matches[1]);
     $category = isset($categoryMap[$categoryKey]) ? $categoryMap[$categoryKey] : null;
     $payload = json_encode(array_filter(
         ['tour' => 78, 'page' => $page, 'category' => $category],
