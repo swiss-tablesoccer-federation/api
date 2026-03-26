@@ -62,8 +62,17 @@ if ($path === '/tournaments') {
 if ($path === '/rankings') {
     $apiUrl = 'https://api.tablesoccer.org/cms.rankings';
     $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-    $category = isset($_GET['category']) ? (string) $_GET['category'] : '';
-    $payload = json_encode(['tour' => 78, 'page' => $page, 'category' => $category]);
+    $categoryMap = [
+        'OS' => 308, 'JS' => 309, 'WS' => 310, 'SS' => 311,
+        'OD' => 312, 'JD' => 313, 'WD' => 314, 'SD' => 315,
+        'MX' => 316, 'OC' => 322,
+    ];
+    $categoryKey = isset($_GET['category']) ? strtoupper((string) $_GET['category']) : '';
+    $category = isset($categoryMap[$categoryKey]) ? $categoryMap[$categoryKey] : null;
+    $payload = json_encode(array_filter(
+        ['tour' => 78, 'page' => $page, 'category' => $category],
+        fn($v) => $v !== null
+    ));
 
     $ch = curl_init($apiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
