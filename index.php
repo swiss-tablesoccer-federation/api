@@ -109,8 +109,49 @@ if (preg_match('#^/rankings/([^/]+)$#', $path, $matches)) {
 
 if ($path === '/docs') {
     $shareUrl = 'https://1drv.ms/f/c/753cbab9de4f01b4/IgA0lMh6_4xeTKD4BOpLF1fUAXQyejtyXdNVOIGVzOBwNVc';
-    $sharingToken = 'u!' . rtrim(strtr(base64_encode($shareUrl), '+/', '-_'), '=');
-    $apiUrl = 'https://graph.microsoft.com/v1.0/shares/' . $sharingToken . '/driveItem/children';
+    $browserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
+
+    // Step 1: Follow the short URL as a browser to resolve the OneDrive page URL (contains authkey)
+    $ch = curl_init($shareUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_NOBODY, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch, CURLOPT_USERAGENT, $browserAgent);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        'Accept-Language: en-US,en;q=0.5',
+    ]);
+
+    curl_exec($ch);
+    $curlError = curl_error($ch);
+    $finalUrl = curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);
+    curl_close($ch);
+
+    if ($curlError !== '') {
+        http_response_code(502);
+        echo json_encode(['error' => 'Failed to resolve OneDrive share URL', 'details' => $curlError]);
+        exit;
+    }
+
+    // Step 2: Extract authkey, cid, and resource id from the final redirect URL
+    parse_str(parse_url($finalUrl, PHP_URL_QUERY) ?? '', $urlParams);
+    $authkey = $urlParams['authkey'] ?? '';
+    $cid = strtolower($urlParams['cid'] ?? '');
+    $resid = $urlParams['resid'] ?? $urlParams['id'] ?? '';
+
+    if ($authkey === '' || $cid === '' || $resid === '') {
+        http_response_code(502);
+        echo json_encode(['error' => 'Could not extract share parameters from OneDrive redirect URL', 'url' => $finalUrl]);
+        exit;
+    }
+
+    // Step 3: Call the OneDrive personal API to list folder children
+    $apiUrl = 'https://api.onedrive.com/v1.0/drives/' . rawurlencode($cid)
+        . '/items/' . rawurlencode($resid)
+        . '/children?authkey=' . rawurlencode($authkey);
 
     $ch = curl_init($apiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -118,6 +159,7 @@ if ($path === '/docs') {
     curl_setopt($ch, CURLOPT_TIMEOUT, 10);
     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch, CURLOPT_USERAGENT, $browserAgent);
 
     $response = curl_exec($ch);
     $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -126,7 +168,7 @@ if ($path === '/docs') {
 
     if ($response === false || $curlError !== '') {
         http_response_code(502);
-        echo json_encode(['error' => 'Failed to fetch docs data', 'details' => $curlError]);
+        echo json_encode(['error' => 'Failed to fetch docs listing', 'details' => $curlError]);
         exit;
     }
 
