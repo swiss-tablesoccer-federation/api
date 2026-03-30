@@ -107,5 +107,40 @@ if (preg_match('#^/rankings/([^/]+)$#', $path, $matches)) {
     exit;
 }
 
+if ($path === '/docs') {
+    $shareUrl = 'https://1drv.ms/f/c/753cbab9de4f01b4/IgA0lMh6_4xeTKD4BOpLF1fUAXQyejtyXdNVOIGVzOBwNVc';
+    $sharingToken = 'u!' . rtrim(strtr(base64_encode($shareUrl), '+/', '-_'), '=');
+    $apiUrl = 'https://graph.microsoft.com/v1.0/shares/' . $sharingToken . '/driveItem/children';
+
+    $ch = curl_init($apiUrl);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 10);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
+
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    $curlError = curl_error($ch);
+    curl_close($ch);
+
+    if ($response === false || $curlError !== '') {
+        http_response_code(502);
+        echo json_encode(['error' => 'Failed to fetch docs data', 'details' => $curlError]);
+        exit;
+    }
+
+    $data = json_decode($response, true);
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        http_response_code(502);
+        echo json_encode(['error' => 'Upstream response is not valid JSON']);
+        exit;
+    }
+
+    http_response_code($httpCode);
+    echo json_encode($data);
+    exit;
+}
+
 http_response_code(404);
 echo json_encode(['error' => 'Not Found']);
