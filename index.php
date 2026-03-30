@@ -108,14 +108,17 @@ if (preg_match('#^/rankings/([^/]+)$#', $path, $matches)) {
 }
 
 if ($path === '/docs') {
-    $shareUrl = 'https://1drv.ms/f/c/753cbab9de4f01b4/IgA0lMh6_4xeTKD4BOpLF1fUAXQyejtyXdNVOIGVzOBwNVc';
+    $shareUrl   = 'https://1drv.ms/f/c/753cbab9de4f01b4/IgA0lMh6_4xeTKD4BOpLF1fUAXQyejtyXdNVOIGVzOBwNVc';
     $browserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36';
-    $apiBase = 'https://my.microsoftpersonalcontent.com/_api/v2.0';
+    $apiBase    = 'https://my.microsoftpersonalcontent.com/_api/v2.0';
 
-    // Sharing token: u! + URL-safe base64 of the share URL (no padding)
-    $shareToken = 'u!' . rtrim(strtr(base64_encode($shareUrl), '+/', '-_'), '=');
+    // Drive and item IDs are stable — they are embedded in the permanent share URL
+    // and confirmed via the onedrive.live.com redirect (cid + resid params).
+    $driveId = '753cbab9de4f01b4';
+    $itemId  = '753CBAB9DE4F01B4!s7ac894348cff4c5ea0f804ea4b1757d4';
 
-    // Cookie jar shared across all requests, exactly as a browser session would do
+    // Cookie jar shared across both requests so session cookies set by 1drv.ms
+    // (which redirects through my.microsoftpersonalcontent.com) are forwarded.
     $cookieFile = tempnam(sys_get_temp_dir(), 'odcookie_');
     chmod($cookieFile, 0600);
 
@@ -140,8 +143,9 @@ if ($path === '/docs') {
         return ['body' => $body, 'error' => $error, 'code' => $code];
     };
 
-    // Step 1: POST to the share URL to establish session cookies (mirrors the browser's
-    //         initial request to 1drv.ms which sets auth cookies for subsequent API calls)
+    // Step 1: POST to the share URL to establish session cookies.
+    // 1drv.ms redirects through my.microsoftpersonalcontent.com, setting auth
+    // cookies for that domain which are needed by the /children call below.
     $step1Params = [
         '$expand' => 'thumbnails',
         '$select' => '*,containingDrivePolicyScenarioViewpoint,ocr,webDavUrl,sharepointIds',
@@ -155,63 +159,37 @@ if ($path === '/docs') {
         exit;
     }
 
-    // Step 2: Resolve the shared item to obtain its drive ID and item ID
-    $step2Params = ['$select' => 'id,parentReference,folder,bundle,remoteItem'];
-    $step2Fields = http_build_query($step2Params, '', '&', PHP_QUERY_RFC3986);
-    $r2 = $doPost($apiBase . '/shares/' . $shareToken . '/driveitem?' . $step2Fields, $step2Params);
-    if ($r2['body'] === false || $r2['error'] !== '') {
-        @unlink($cookieFile);
-        http_response_code(502);
-        echo json_encode(['error' => 'Failed to resolve shared drive item', 'details' => $r2['error']]);
-        exit;
-    }
-
-    $itemInfo = json_decode($r2['body'], true);
-    if (json_last_error() !== JSON_ERROR_NONE) {
-        @unlink($cookieFile);
-        http_response_code(502);
-        echo json_encode(['error' => 'Failed to parse drive item info']);
-        exit;
-    }
-
-    $itemId = $itemInfo['id'] ?? '';
-    $driveId = strtolower($itemInfo['parentReference']['driveId'] ?? '');
-    if ($itemId === '' || $driveId === '') {
-        @unlink($cookieFile);
-        http_response_code(502);
-        echo json_encode(['error' => 'Missing drive/item ID in share response', 'data' => $itemInfo]);
-        exit;
-    }
-
-    // Step 3: List the folder children (params duplicated in URL and body, as the browser does)
-    $step3Params = [
+    // Step 2: List the folder children (params duplicated in URL and body, as the browser does).
+    // The /shares/driveitem resolution step is not needed: the drive ID and item ID are
+    // stable and already known from the permanent share URL.
+    $step2Params = [
         '$top' => '100',
         'orderby' => 'folder,name asc',
         '$expand' => 'thumbnails,tags',
         'select' => '*,ocr,webDavUrl,sharepointIds,isRestricted,commentSettings,specialFolder,containingDrivePolicyScenarioViewpoint',
         'ump' => '1',
     ];
-    $step3Fields = http_build_query($step3Params, '', '&', PHP_QUERY_RFC3986);
-    $step3Url = $apiBase . '/drives/' . rawurlencode($driveId)
+    $step2Fields = http_build_query($step2Params, '', '&', PHP_QUERY_RFC3986);
+    $step2Url = $apiBase . '/drives/' . rawurlencode($driveId)
         . '/items/' . rawurlencode($itemId)
-        . '/children?' . $step3Fields;
-    $r3 = $doPost($step3Url, $step3Params);
+        . '/children?' . $step2Fields;
+    $r2 = $doPost($step2Url, $step2Params);
     @unlink($cookieFile);
 
-    if ($r3['body'] === false || $r3['error'] !== '') {
+    if ($r2['body'] === false || $r2['error'] !== '') {
         http_response_code(502);
-        echo json_encode(['error' => 'Failed to fetch docs listing', 'details' => $r3['error']]);
+        echo json_encode(['error' => 'Failed to fetch docs listing', 'details' => $r2['error']]);
         exit;
     }
 
-    $data = json_decode($r3['body'], true);
+    $data = json_decode($r2['body'], true);
     if (json_last_error() !== JSON_ERROR_NONE) {
         http_response_code(502);
         echo json_encode(['error' => 'Upstream response is not valid JSON']);
         exit;
     }
 
-    http_response_code($r3['code']);
+    http_response_code($r2['code']);
     echo json_encode($data);
     exit;
 }
