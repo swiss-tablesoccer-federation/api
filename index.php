@@ -92,7 +92,7 @@ if (preg_match('#^/rankings/([^/]+)$#', $path, $matches)) {
     proxy_request('https://api.tablesoccer.org/cms.rankings', $payload);
 }
 
-if ($path === '/committee') {
+if ($path === '/committees') {
     proxy_request('https://api.tablesoccer.org/cms.committees?organization=STF');
 }
 
