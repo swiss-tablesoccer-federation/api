@@ -122,46 +122,40 @@ if ($path === '/docs') {
     $cookieFile = tempnam(sys_get_temp_dir(), 'odcookie_');
     chmod($cookieFile, 0600);
 
-    $doPost = function (string $url, array $params) use ($browserAgent, $cookieFile): array {
-        $fields = http_build_query($params, '', '&', PHP_QUERY_RFC3986);
-        $ch = curl_init($url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 15);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 2);
-        curl_setopt($ch, CURLOPT_USERAGENT, $browserAgent);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
-        curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieFile);
-        curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieFile);
-        $body = curl_exec($ch);
-        $error = curl_error($ch);
-        $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-        curl_close($ch);
-        return ['body' => $body, 'error' => $error, 'code' => $code];
-    };
-
-    // Step 1: POST to the share URL to establish session cookies.
-    // 1drv.ms redirects through my.microsoftpersonalcontent.com, setting auth
-    // cookies for that domain which are needed by the /children call below.
-    $step1Params = [
+    // Step 1: POST to the share URL (urlencoded) to establish session cookies.
+    // 1drv.ms redirects through onedrive.live.com → my.microsoftpersonalcontent.com,
+    // setting auth cookies needed by the /children call below.
+    $step1Params = http_build_query([
         '$expand' => 'thumbnails',
         '$select' => '*,containingDrivePolicyScenarioViewpoint,ocr,webDavUrl,sharepointIds',
         'ump' => '1',
-    ];
-    $r1 = $doPost($shareUrl, $step1Params);
-    if ($r1['body'] === false || $r1['error'] !== '') {
+    ], '', '&', PHP_QUERY_RFC3986);
+    $ch1 = curl_init($shareUrl);
+    curl_setopt($ch1, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch1, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch1, CURLOPT_TIMEOUT, 15);
+    curl_setopt($ch1, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch1, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch1, CURLOPT_USERAGENT, $browserAgent);
+    curl_setopt($ch1, CURLOPT_POST, true);
+    curl_setopt($ch1, CURLOPT_POSTFIELDS, $step1Params);
+    curl_setopt($ch1, CURLOPT_HTTPHEADER, ['Content-Type: application/x-www-form-urlencoded']);
+    curl_setopt($ch1, CURLOPT_COOKIEFILE, $cookieFile);
+    curl_setopt($ch1, CURLOPT_COOKIEJAR, $cookieFile);
+    $r1Body = curl_exec($ch1);
+    $r1Error = curl_error($ch1);
+    curl_close($ch1);
+    if ($r1Body === false || $r1Error !== '') {
         @unlink($cookieFile);
         http_response_code(502);
-        echo json_encode(['error' => 'Failed to redeem OneDrive share', 'details' => $r1['error']]);
+        echo json_encode(['error' => 'Failed to redeem OneDrive share', 'details' => $r1Error]);
         exit;
     }
 
-    // Step 2: List the folder children (params duplicated in URL and body, as the browser does).
-    // The /shares/driveitem resolution step is not needed: the drive ID and item ID are
-    // stable and already known from the permanent share URL.
+    // Step 2: List the folder children.
+    // The browser sends this as multipart/form-data (ump=1 means "use multipart").
+    // The Origin and Referer headers are required — the server validates them as a
+    // CORS/CSRF check to ensure the request originates from onedrive.live.com.
     $step2Params = [
         '$top' => '100',
         'orderby' => 'folder,name asc',
@@ -173,8 +167,29 @@ if ($path === '/docs') {
     $step2Url = $apiBase . '/drives/' . rawurlencode($driveId)
         . '/items/' . rawurlencode($itemId)
         . '/children?' . $step2Fields;
-    $r2 = $doPost($step2Url, $step2Params);
+    $ch2 = curl_init($step2Url);
+    curl_setopt($ch2, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch2, CURLOPT_FOLLOWLOCATION, true);
+    curl_setopt($ch2, CURLOPT_TIMEOUT, 15);
+    curl_setopt($ch2, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($ch2, CURLOPT_SSL_VERIFYHOST, 2);
+    curl_setopt($ch2, CURLOPT_USERAGENT, $browserAgent);
+    curl_setopt($ch2, CURLOPT_POST, true);
+    // Passing an array (not a string) makes curl use multipart/form-data with a boundary,
+    // exactly matching what the browser sends for ump=1 requests.
+    curl_setopt($ch2, CURLOPT_POSTFIELDS, $step2Params);
+    curl_setopt($ch2, CURLOPT_HTTPHEADER, [
+        'Origin: https://onedrive.live.com',
+        'Referer: https://onedrive.live.com/',
+    ]);
+    curl_setopt($ch2, CURLOPT_COOKIEFILE, $cookieFile);
+    curl_setopt($ch2, CURLOPT_COOKIEJAR, $cookieFile);
+    $r2Body  = curl_exec($ch2);
+    $r2Error = curl_error($ch2);
+    $r2Code  = curl_getinfo($ch2, CURLINFO_HTTP_CODE);
+    curl_close($ch2);
     @unlink($cookieFile);
+    $r2 = ['body' => $r2Body, 'error' => $r2Error, 'code' => $r2Code];
 
     if ($r2['body'] === false || $r2['error'] !== '') {
         http_response_code(502);
