@@ -19,14 +19,32 @@ if (in_array($origin, $allowed_origins)) {
 }
 
 /**
- * Proxy a request to the upstream API and stream the response.
- * Accepts an optional JSON payload; when provided the request is sent as POST.
- * Terminates execution after sending the response.
+ * Send JSON data with the provided HTTP status and terminate execution.
+ */
+function respond_json(mixed $data, int $httpCode = 200): void
+{
+    $response = json_encode($data);
+
+    if ($response === false) {
+        http_response_code(500);
+        echo json_encode(['error' => 'Failed to encode JSON response']);
+        exit;
+    }
+
+    http_response_code($httpCode);
+    echo $response;
+    exit;
+}
+
+/**
+ * Execute an upstream request and return the raw JSON response with its status code.
  *
  * @param string      $apiUrl  Full upstream URL.
  * @param string|null $payload JSON-encoded POST body, or null for a GET request.
+ *
+ * @return array{response: string, http_code: int}
  */
-function proxy_request(string $apiUrl, ?string $payload = null): void
+function execute_request(string $apiUrl, ?string $payload = null): array
 {
     $ch = curl_init($apiUrl);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -47,20 +65,60 @@ function proxy_request(string $apiUrl, ?string $payload = null): void
     curl_close($ch);
 
     if ($response === false || $curlError !== '') {
-        http_response_code(502);
-        echo json_encode(['error' => 'Failed to fetch data', 'details' => $curlError]);
-        exit;
+        respond_json(['error' => 'Failed to fetch data', 'details' => $curlError], 502);
     }
 
     json_decode($response);
     if (json_last_error() !== JSON_ERROR_NONE) {
-        http_response_code(502);
-        echo json_encode(['error' => 'Upstream response is not valid JSON']);
-        exit;
+        respond_json(['error' => 'Upstream response is not valid JSON'], 502);
     }
 
-    http_response_code($httpCode);
-    echo $response;
+    return ['response' => $response, 'http_code' => $httpCode];
+}
+
+/**
+ * Decode a validated JSON response into an array.
+ *
+ * @return array<mixed>
+ */
+function decode_json_response(string $response): array
+{
+    $decoded = json_decode($response, true);
+
+    if (!is_array($decoded)) {
+        respond_json(['error' => 'Upstream response has an unexpected structure'], 502);
+    }
+
+    return $decoded;
+}
+
+/**
+ * Encode a payload for upstream POST requests.
+ */
+function encode_payload(array $payload): string
+{
+    $encoded = json_encode($payload);
+
+    if ($encoded === false) {
+        respond_json(['error' => 'Failed to encode upstream request payload'], 500);
+    }
+
+    return $encoded;
+}
+
+/**
+ * Proxy a request to the upstream API and stream the response.
+ * Accepts an optional JSON payload; when provided the request is sent as POST.
+ * Terminates execution after sending the response.
+ *
+ * @param string      $apiUrl  Full upstream URL.
+ * @param string|null $payload JSON-encoded POST body, or null for a GET request.
+ */
+function proxy_request(string $apiUrl, ?string $payload = null): void
+{
+    $result = execute_request($apiUrl, $payload);
+    http_response_code($result['http_code']);
+    echo $result['response'];
     exit;
 }
 
@@ -94,6 +152,50 @@ if (preg_match('#^/rankings/([^/]+)$#', $path, $matches)) {
 
 if ($path === '/committees') {
     proxy_request('https://api.tablesoccer.org/cms.committees?organization=STF');
+}
+
+if ($path === '/hall-of-fame') {
+    $searchResult = execute_request(
+        'https://api.tablesoccer.org/search.tournament',
+        encode_payload(['q' => 'Swiss Tablesoccer Finals', 'page' => 1])
+    );
+
+    if ($searchResult['http_code'] >= 400) {
+        http_response_code($searchResult['http_code']);
+        echo $searchResult['response'];
+        exit;
+    }
+
+    $searchData = decode_json_response($searchResult['response']);
+    $codes = [];
+
+    foreach ($searchData['results'] ?? [] as $result) {
+        if (is_array($result) && isset($result['code']) && is_string($result['code'])) {
+            $codes[] = $result['code'];
+        }
+    }
+
+    $hallOfFame = [];
+
+    foreach ($codes as $code) {
+        $moduleResult = execute_request(
+            'https://api.tablesoccer.org/tournament.fetch_module',
+            encode_payload([
+                'attr' => ['tournament', 'competitions'],
+                'args' => ['code' => $code],
+            ])
+        );
+
+        if ($moduleResult['http_code'] >= 400) {
+            http_response_code($moduleResult['http_code']);
+            echo $moduleResult['response'];
+            exit;
+        }
+
+        $hallOfFame[] = decode_json_response($moduleResult['response']);
+    }
+
+    respond_json($hallOfFame);
 }
 
 http_response_code(404);
