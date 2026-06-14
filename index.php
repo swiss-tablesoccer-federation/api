@@ -171,7 +171,11 @@ if ($path === '/hall-of-fame') {
 
     foreach ($searchData['results'] ?? [] as $result) {
         if (is_array($result) && isset($result['code']) && is_string($result['code'])) {
-            $codes[] = $result['code'];
+            $code = trim($result['code']);
+
+            if ($code !== '') {
+                $codes[] = $code;
+            }
         }
     }
 
