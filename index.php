@@ -161,9 +161,7 @@ if ($path === '/hall-of-fame') {
     );
 
     if ($searchResult['http_code'] >= 400) {
-        http_response_code($searchResult['http_code']);
-        echo $searchResult['response'];
-        exit;
+        respond_json(decode_json_response($searchResult['response']), $searchResult['http_code']);
     }
 
     $searchData = decode_json_response($searchResult['response']);
@@ -191,9 +189,7 @@ if ($path === '/hall-of-fame') {
         );
 
         if ($moduleResult['http_code'] >= 400) {
-            http_response_code($moduleResult['http_code']);
-            echo $moduleResult['response'];
-            exit;
+            respond_json(decode_json_response($moduleResult['response']), $moduleResult['http_code']);
         }
 
         $hallOfFame[] = decode_json_response($moduleResult['response']);
