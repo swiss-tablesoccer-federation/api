@@ -374,7 +374,7 @@
       "3": { "rank": 3, "players": [{ "name": "Gäumann Sandra" }, { "name": "Wallimann Hannes" }] }
     }
   },
-  "Senior Doubles": {
+  "Senior Over 50 Doubles": {
     "2015": {
       "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }, { "name": "Rodel Hans" }] },
       "2": { "rank": 2, "players": [{ "name": "Spreiter Mathias" }, { "name": "Strassnig Walter" }] },
@@ -411,7 +411,7 @@
       "3": { "rank": 3, "players": [{ "name": "-" }] }
     }
   },
-  "Senior Singles": {
+  "Senior Over 50 Singles": {
     "2015": {
       "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }] },
       "2": { "rank": 2, "players": [{ "name": "Schükerk Bert" }] },
