@@ -1,0 +1,535 @@
+{
+  "Men Doubles": {
+    "2009": {
+      "1": { "rank": 1, "players": [{ "name": "Kaiser Patric" }, { "name": "Stingelin Dimitri" }] },
+      "2": { "rank": 2, "players": [{ "name": "Schärer Thomas" }, { "name": "Anderegg Manuel" }] },
+      "3": { "rank": 3, "players": [{ "name": "Berkeczy Noemi" }, { "name": "Macchia Marco" }] }
+    },
+    "2010": {
+      "1": { "rank": 1, "players": [{ "name": "Glaus Marcel" }, { "name": "Lukas Robert" }] },
+      "2": { "rank": 2, "players": [{ "name": "Schärer Thomas" }, { "name": "Anderegg Manuel" }] },
+      "3": { "rank": 3, "players": [{ "name": "Kaiser Patric" }, { "name": "Stingelin Dimitri" }] }
+    },
+    "2012": {
+      "1": { "rank": 1, "players": [{ "name": "Macchia Marco" }, { "name": "Morgenthaler Daniel" }] },
+      "2": { "rank": 2, "players": [{ "name": "Glaus Marcel" }, { "name": "Pilovic Daniel" }] },
+      "3": { "rank": 3, "players": [{ "name": "Christ Andreas" }, { "name": "Kunz Florian" }] }
+    },
+    "2013": {
+      "1": { "rank": 1, "players": [{ "name": "Macchia Marco" }, { "name": "Morgenthaler Daniel" }] },
+      "2": { "rank": 2, "players": [{ "name": "Burri Marc" }, { "name": "Wallimann Hannes" }] },
+      "3": { "rank": 3, "players": [{ "name": "Kaiser Patric" }, { "name": "Stingelin Dimitri" }] }
+    },
+    "2014": {
+      "1": { "rank": 1, "players": [{ "name": "Macchia Marco" }, { "name": "Morgenthaler Daniel" }] },
+      "2": { "rank": 2, "players": [{ "name": "Salzgeber Pascal" }, { "name": "Wallimann Hannes" }] },
+      "3": { "rank": 3, "players": [{ "name": "Ziegler Thomas" }, { "name": "Nater Pascal" }] }
+    },
+    "2015": {
+      "1": { "rank": 1, "players": [{ "name": "Hodler Christian" }, { "name": "Morgenthaler Daniel" }] },
+      "2": { "rank": 2, "players": [{ "name": "Santo Fabio Di" }, { "name": "Pilovic Daniel" }] },
+      "3": { "rank": 3, "players": [{ "name": "Felder Peter" }, { "name": "Schuler Adrian" }] }
+    },
+    "2016": {
+      "1": { "rank": 1, "players": [{ "name": "Santo Fabio Di" }, { "name": "Morgenthaler Daniel" }] },
+      "2": { "rank": 2, "players": [{ "name": "Szüle Christian" }, { "name": "Noël Dominique" }] },
+      "3": { "rank": 3, "players": [{ "name": "Ramser Mirko" }, { "name": "Castro Alejandro Meyer" }] }
+    },
+    "2017": {
+      "1": { "rank": 1, "players": [{ "name": "Wallimann Hannes" }, { "name": "Salzgeber Pascal" }] },
+      "2": { "rank": 2, "players": [{ "name": "Ramser Mirko" }, { "name": "Castro Alejandro Meyer" }] },
+      "3": { "rank": 3, "players": [{ "name": "Ziegler Thomas" }, { "name": "Nater Pascal" }] }
+    },
+    "2018": {
+      "1": { "rank": 1, "players": [{ "name": "Wallimann Hannes" }, { "name": "Salzgeber Pascal" }] },
+      "2": { "rank": 2, "players": [{ "name": "Devaud Tristan" }, { "name": "Zuber Silvan" }] },
+      "3": { "rank": 3, "players": [{ "name": "Schöb Stefan" }, { "name": "Landolt Patrik" }] }
+    },
+    "2019": {
+      "1": { "rank": 1, "players": [{ "name": "Wallimann Hannes" }, { "name": "Salzgeber Pascal" }] },
+      "2": { "rank": 2, "players": [{ "name": "Zimmermann Christoph" }, { "name": "Karadzi Bersit" }] },
+      "3": { "rank": 3, "players": [{ "name": "Schöb Stefan" }, { "name": "Landolt Patrik" }] }
+    },
+    "2021": {
+      "1": { "rank": 1, "players": [{ "name": "Wallimann Hannes" }, { "name": "Bärtsch Lukas" }] },
+      "2": { "rank": 2, "players": [{ "name": "Knutti Stefan" }, { "name": "Gobeli Marc" }] },
+      "3": { "rank": 3, "players": [{ "name": "Maurer Thomas" }, { "name": "Sätteli Michael" }] }
+    },
+    "2022": {
+      "1": { "rank": 1, "players": [{ "name": "Wallimann Hannes" }, { "name": "Salzgeber Pascal" }] },
+      "2": { "rank": 2, "players": [{ "name": "Ziegler Thomas" }, { "name": "Nater Pascal" }] },
+      "3": { "rank": 3, "players": [{ "name": "Felder Peter" }, { "name": "Schuler Adrian" }] }
+    },
+    "2023": {
+      "1": { "rank": 1, "players": [{ "name": "Felder Martin H." }, { "name": "Salzgeber Claudio" }] },
+      "2": { "rank": 2, "players": [{ "name": "Devaud Tristan" }, { "name": "Zuber Silvan" }] },
+      "3": { "rank": 3, "players": [{ "name": "Regotz Michel" }, { "name": "Wicki Apad" }] }
+    },
+    "2024": {
+      "1": { "rank": 1, "players": [{ "name": "Wallimann Hannes" }, { "name": "Salzgeber Pascal" }] },
+      "2": { "rank": 2, "players": [{ "name": "Felder Martin H." }, { "name": "Salzgeber Claudio" }] },
+      "3": { "rank": 3, "players": [{ "name": "Freiburghaus Luca" }, { "name": "Burgener Patrick" }] }
+    },
+    "2016 (Event 2)": {
+      "1": { "rank": 1, "players": [{ "name": "Wallimann Hannes" }, { "name": "Salzgeber Pascal" }] },
+      "2": { "rank": 2, "players": [{ "name": "Macchia Marco" }, { "name": "Prisi Roland" }] },
+      "3": { "rank": 3, "players": [{ "name": "Ziegler Thomas" }, { "name": "Nater Pascal" }] }
+    }
+  },
+  "Men Singles": {
+    "2009": {
+      "1": { "rank": 1, "players": [{ "name": "Santo Fabio Di" }] },
+      "2": { "rank": 2, "players": [{ "name": "Keller Pierino" }] },
+      "3": { "rank": 3, "players": [{ "name": "Lukas Robert" }] }
+    },
+    "2010": {
+      "1": { "rank": 1, "players": [{ "name": "Santo Fabio Di" }] },
+      "2": { "rank": 2, "players": [{ "name": "Glaus Marcel" }] },
+      "3": { "rank": 3, "players": [{ "name": "Wicki Arpad" }] }
+    },
+    "2012": {
+      "1": { "rank": 1, "players": [{ "name": "Pilovic Daniel" }] },
+      "2": { "rank": 2, "players": [{ "name": "Macchia Marco" }] },
+      "3": { "rank": 3, "players": [{ "name": "Pekic Dusan" }] }
+    },
+    "2013": {
+      "1": { "rank": 1, "players": [{ "name": "Santo Fabio Di" }] },
+      "2": { "rank": 2, "players": [{ "name": "Macchia Marco" }] },
+      "3": { "rank": 3, "players": [{ "name": "Morgenthaler Daniel" }] }
+    },
+    "2014": {
+      "1": { "rank": 1, "players": [{ "name": "Morgenthaler Daniel" }] },
+      "2": { "rank": 2, "players": [{ "name": "Pilovic Daniel" }] },
+      "3": { "rank": 3, "players": [{ "name": "Santo Fabio Di" }] }
+    },
+    "2015": {
+      "1": { "rank": 1, "players": [{ "name": "Macchia Marco" }] },
+      "2": { "rank": 2, "players": [{ "name": "Morgenthaler Daniel" }] },
+      "3": { "rank": 3, "players": [{ "name": "Pilovic Daniel" }] }
+    },
+    "2016": {
+      "1": { "rank": 1, "players": [{ "name": "Perrin Gilles" }] },
+      "2": { "rank": 2, "players": [{ "name": "Zuber Silvan" }] },
+      "3": { "rank": 3, "players": [{ "name": "Rey-Mermet Michael" }] }
+    },
+    "2017": {
+      "1": { "rank": 1, "players": [{ "name": "Santo Fabio Di" }] },
+      "2": { "rank": 2, "players": [{ "name": "Wallimann Hannes" }] },
+      "3": { "rank": 3, "players": [{ "name": "Zimmermann Christoph" }] }
+    },
+    "2018": {
+      "1": { "rank": 1, "players": [{ "name": "Santo Fabio Di" }] },
+      "2": { "rank": 2, "players": [{ "name": "Salzgeber Pascal" }] },
+      "3": { "rank": 3, "players": [{ "name": "Felder Martin" }] }
+    },
+    "2019": {
+      "1": { "rank": 1, "players": [{ "name": "Salzgeber Pascal" }] },
+      "2": { "rank": 2, "players": [{ "name": "Wallimann Hannes" }] },
+      "3": { "rank": 3, "players": [{ "name": "Morgenthaler Daniel" }] }
+    },
+    "2021": {
+      "1": { "rank": 1, "players": [{ "name": "Salzgeber Pascal" }] },
+      "2": { "rank": 2, "players": [{ "name": "Macchia Marco" }] },
+      "3": { "rank": 3, "players": [{ "name": "Morgenthaler Daniel" }] }
+    },
+    "2022": {
+      "1": { "rank": 1, "players": [{ "name": "Felder Peter" }] },
+      "2": { "rank": 2, "players": [{ "name": "Karadzi Bersit" }] },
+      "3": { "rank": 3, "players": [{ "name": "Wallimann Hannes" }] }
+    },
+    "2023": {
+      "1": { "rank": 1, "players": [{ "name": "Zimmermann Christoph" }] },
+      "2": { "rank": 2, "players": [{ "name": "Ramser Mirko" }] },
+      "3": { "rank": 3, "players": [{ "name": "Wallimann Hannes" }] }
+    },
+    "2024": {
+      "1": { "rank": 1, "players": [{ "name": "Felder Martin H." }] },
+      "2": { "rank": 2, "players": [{ "name": "Devaud Tristan" }] },
+      "3": { "rank": 3, "players": [{ "name": "Schöb Stefan" }] }
+    },
+    "2016 (Event 2)": {
+      "1": { "rank": 1, "players": [{ "name": "Santo Fabio Di" }] },
+      "2": { "rank": 2, "players": [{ "name": "Salzgeber Pascal" }] },
+      "3": { "rank": 3, "players": [{ "name": "Wallimann Hannes" }] }
+    }
+  },
+  "Women Doubles": {
+    "2009": {
+      "1": { "rank": 1, "players": [{ "name": "Täschler Divyam" }, { "name": "Schneeberger Michèle" }] },
+      "2": { "rank": 2, "players": [{ "name": "Ammann Beatrix" }, { "name": "Berkeczy Noemi" }] },
+      "3": { "rank": 3, "players": [{ "name": "Moser Cindy" }, { "name": "Brizzi Cristina" }] }
+    },
+    "2010": {
+      "1": { "rank": 1, "players": [{ "name": "Moser Cindy" }, { "name": "Täschler Divyam" }] },
+      "2": { "rank": 2, "players": [{ "name": "Berkeczy Noemi" }, { "name": "Ammann Beatrix" }] },
+      "3": { "rank": 3, "players": [{ "name": "Kuhn Deborah" }, { "name": "Brizzi Cristina" }] }
+    },
+    "2012": {
+      "1": { "rank": 1, "players": [{ "name": "Moser Cindy" }, { "name": "Täschler Divyam" }] },
+      "2": { "rank": 2, "players": [{ "name": "Wittwer Sarah" }, { "name": "Sutter Michèle" }] },
+      "3": { "rank": 3, "players": [{ "name": "Ammann Beatrix" }, { "name": "Berkeczy Noemi" }] }
+    },
+    "2013": {
+      "1": { "rank": 1, "players": [{ "name": "Schneeberger Michèle" }, { "name": "Steinmann Alexandra" }] },
+      "2": { "rank": 2, "players": [{ "name": "Moser Cindy" }, { "name": "Berkeczy Noemi" }] },
+      "3": { "rank": 3, "players": [{ "name": "Dias Melissa" }, { "name": "Täschler Divyam" }] }
+    },
+    "2014": {
+      "1": { "rank": 1, "players": [{ "name": "Schneeberger Michèle" }, { "name": "Steinmann Alexandra" }] },
+      "2": { "rank": 2, "players": [{ "name": "Moser Cindy" }, { "name": "Berkeczy Noemi" }] },
+      "3": { "rank": 3, "players": [{ "name": "Dias Melissa" }, { "name": "Täschler Divyam" }] }
+    },
+    "2015": {
+      "1": { "rank": 1, "players": [{ "name": "Schneeberger Michèle" }, { "name": "Steinmann Alexandra" }] },
+      "2": { "rank": 2, "players": [{ "name": "Krüsi Nicole" }, { "name": "Mettler Dina" }] },
+      "3": { "rank": 3, "players": [{ "name": "Gäumann Sandra" }, { "name": "Anderegg Priska" }] }
+    },
+    "2016": {
+      "1": { "rank": 1, "players": [{ "name": "Dias Melissa" }, { "name": "Berkeczy Noemi" }] },
+      "2": { "rank": 2, "players": [{ "name": "Stillhard Nicole" }, { "name": "Fotsch Claudia" }] },
+      "3": { "rank": 3, "players": [{ "name": "Mettler Dina" }, { "name": "Conrad Ramona" }] }
+    },
+    "2017": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }, { "name": "Täschler Divyam" }] },
+      "2": { "rank": 2, "players": [{ "name": "Fotsch Claudia" }, { "name": "Mettler Dina" }] },
+      "3": { "rank": 3, "players": [{ "name": "Krüsi Nicole" }, { "name": "Koller Simona" }] }
+    },
+    "2018": {
+      "1": { "rank": 1, "players": [{ "name": "Krüsi Nicole" }, { "name": "Täschler Divyam" }] },
+      "2": { "rank": 2, "players": [{ "name": "Schmid Anja" }, { "name": "Kubiatowicz Cindy" }] },
+      "3": { "rank": 3, "players": [{ "name": "Küng Jenny" }, { "name": "Zahnd Denise" }] }
+    },
+    "2019": {
+      "1": { "rank": 1, "players": [{ "name": "Fotsch Claudia" }, { "name": "Mettler Dina" }] },
+      "2": { "rank": 2, "players": [{ "name": "Täschler Divyam" }, { "name": "Krüsi Nicole" }] },
+      "3": { "rank": 3, "players": [{ "name": "Meisterhans Judith" }, { "name": "Jetzer Sarah" }] }
+    },
+    "2021": {
+      "1": { "rank": 1, "players": [{ "name": "Täschler Divyam" }, { "name": "Kubiatowicz Cindy" }] },
+      "2": { "rank": 2, "players": [{ "name": "Schwarz Andrea" }, { "name": "Ammann Beatrix" }] },
+      "3": { "rank": 3, "players": [{ "name": "Krüsi Nicole" }, { "name": "Sutter Michèle" }] }
+    },
+    "2022": {
+      "1": { "rank": 1, "players": [{ "name": "Mattich Nina" }, { "name": "Paolo Samantha Di" }] },
+      "2": { "rank": 2, "players": [{ "name": "Mettler Dina" }, { "name": "Fotsch Claudia" }] },
+      "3": { "rank": 3, "players": [{ "name": "Küng Jenny" }, { "name": "Lomello Luana" }] }
+    },
+    "2023": {
+      "1": { "rank": 1, "players": [{ "name": "Meisterhans Judith" }, { "name": "Jetzer Sarah" }] },
+      "2": { "rank": 2, "players": [{ "name": "Lomello Luana" }, { "name": "Küng Jenny" }] },
+      "3": { "rank": 3, "players": [{ "name": "Krüsi Nicole" }, { "name": "Dias Melissa" }] }
+    },
+    "2024": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }, { "name": "Paolo Samantha Di" }] },
+      "2": { "rank": 2, "players": [{ "name": "Meisterhans Judith" }, { "name": "Jetzer Sarah" }] },
+      "3": { "rank": 3, "players": [{ "name": "Krüsi Nicole" }, { "name": "Weibel Melissa" }] }
+    },
+    "2016 (Event 2)": {
+      "1": { "rank": 1, "players": [{ "name": "Sutter Michèle" }, { "name": "Dias Melissa" }] },
+      "2": { "rank": 2, "players": [{ "name": "Kubiatowicz Cindy" }, { "name": "Täschler Divyam" }] },
+      "3": { "rank": 3, "players": [{ "name": "Koller Simonan" }, { "name": "Krüsi Nicole" }] }
+    }
+  },
+  "Women Singles": {
+    "2009": {
+      "1": { "rank": 1, "players": [{ "name": "Ammann Beatrix" }] },
+      "2": { "rank": 2, "players": [{ "name": "Berkeczy Noemi" }] },
+      "3": { "rank": 3, "players": [{ "name": "Kubiatowicz Cindy" }] }
+    },
+    "2010": {
+      "1": { "rank": 1, "players": [{ "name": "Ammann Beatrix" }] },
+      "2": { "rank": 2, "players": [{ "name": "Kubiatowicz Cindy" }] },
+      "3": { "rank": 3, "players": [{ "name": "Täschler Divyam" }] }
+    },
+    "2012": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }] },
+      "2": { "rank": 2, "players": [{ "name": "Schneeberger Michèle" }] },
+      "3": { "rank": 3, "players": [{ "name": "Steinmann Alexandra" }] }
+    },
+    "2013": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }] },
+      "2": { "rank": 2, "players": [{ "name": "Steinmann Alexandra" }] },
+      "3": { "rank": 3, "players": [{ "name": "Schneeberger Michèle" }] }
+    },
+    "2014": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }] },
+      "2": { "rank": 2, "players": [{ "name": "Schneeberger Michèle" }] },
+      "3": { "rank": 3, "players": [{ "name": "Berkeczy Noemi" }] }
+    },
+    "2015": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }] },
+      "2": { "rank": 2, "players": [{ "name": "Sutter Michèle" }] },
+      "3": { "rank": 3, "players": [{ "name": "Dias Melissa" }] }
+    },
+    "2016": {
+      "1": { "rank": 1, "players": [{ "name": "Mettler Dina" }] },
+      "2": { "rank": 2, "players": [{ "name": "Fotsch Claudia" }] },
+      "3": { "rank": 3, "players": [{ "name": "Dias Melissa" }] }
+    },
+    "2017": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }] },
+      "2": { "rank": 2, "players": [{ "name": "Fotsch Claudia" }] },
+      "3": { "rank": 3, "players": [{ "name": "Krüsi Nicole" }] }
+    },
+    "2018": {
+      "1": { "rank": 1, "players": [{ "name": "Mettler Dina" }] },
+      "2": { "rank": 2, "players": [{ "name": "Dias Melissa" }] },
+      "3": { "rank": 3, "players": [{ "name": "Sutter Michèle" }] }
+    },
+    "2019": {
+      "1": { "rank": 1, "players": [{ "name": "Fotsch Claudia" }] },
+      "2": { "rank": 2, "players": [{ "name": "Sutter Michèle" }] },
+      "3": { "rank": 3, "players": [{ "name": "Krüsi Nicole" }] }
+    },
+    "2021": {
+      "1": { "rank": 1, "players": [{ "name": "Fotsch Claudia" }] },
+      "2": { "rank": 2, "players": [{ "name": "Berner Beatrice" }] },
+      "3": { "rank": 3, "players": [{ "name": "Krüsi Nicole" }] }
+    },
+    "2022": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }] },
+      "2": { "rank": 2, "players": [{ "name": "Siegenthaler Ramona" }] },
+      "3": { "rank": 3, "players": [{ "name": "Lomello Luana" }] }
+    },
+    "2023": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }] },
+      "2": { "rank": 2, "players": [{ "name": "Berner Beatrice" }] },
+      "3": { "rank": 3, "players": [{ "name": "Krüsi Nicole" }] }
+    },
+    "2024": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }] },
+      "2": { "rank": 2, "players": [{ "name": "Paolo Samantha Di" }] },
+      "3": { "rank": 3, "players": [{ "name": "Jetzer Sarah" }] }
+    },
+    "2016 (Event 2)": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }] },
+      "2": { "rank": 2, "players": [{ "name": "Dias Melissa" }] },
+      "3": { "rank": 3, "players": [{ "name": "Sutter Michèle" }] }
+    }
+  },
+  "Mixed Doubles": {
+    "2010": {
+      "1": { "rank": 1, "players": [{ "name": "Berkeczy Noemi" }, { "name": "Ükis Mustafa" }] },
+      "2": { "rank": 2, "players": [{ "name": "Steinmann Alexandra" }, { "name": "Lukas Robert" }] },
+      "3": { "rank": 3, "players": [{ "name": "Moser Cindy" }, { "name": "Macchia Marco" }] }
+    },
+    "2012": {
+      "1": { "rank": 1, "players": [{ "name": "Sutter Michèle" }, { "name": "Hundstorfer Kevin" }] },
+      "2": { "rank": 2, "players": [{ "name": "Amann Beatrix" }, { "name": "Bär Roger" }] },
+      "3": { "rank": 3, "players": [{ "name": "Wittwer Sarah" }, { "name": "Glaus Marcel" }] }
+    },
+    "2013": {
+      "1": { "rank": 1, "players": [{ "name": "Täschler Divyam" }, { "name": "Macchia Marco" }] },
+      "2": { "rank": 2, "players": [{ "name": "Gäumann Sandra" }, { "name": "Wallimann Hannes" }] },
+      "3": { "rank": 3, "players": [{ "name": "Dias Melissa" }, { "name": "Salzgeber Pascal" }] }
+    },
+    "2014": {
+      "1": { "rank": 1, "players": [{ "name": "Berkeczy Noemi" }, { "name": "Santo Fabio Di" }] },
+      "2": { "rank": 2, "players": [{ "name": "Täschler Divyam" }, { "name": "Macchia Marco" }] },
+      "3": { "rank": 3, "players": [{ "name": "Conrad Ramona" }, { "name": "Akgül Bayram" }] }
+    },
+    "2015": {
+      "1": { "rank": 1, "players": [{ "name": "Sutter Michèle" }, { "name": "Ziegler Thomas" }] },
+      "2": { "rank": 2, "players": [{ "name": "Kropf Fabienne" }, { "name": "Kunz Florian" }] },
+      "3": { "rank": 3, "players": [{ "name": "Krieg Natalie" }, { "name": "Kovacevic Branislav" }] }
+    },
+    "2018": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }, { "name": "Salzgeber Pascal" }] },
+      "2": { "rank": 2, "players": [{ "name": "Täschler Divyam" }, { "name": "Zimmermann Christoph" }] },
+      "3": { "rank": 3, "players": [{ "name": "Bücheli Janine" }, { "name": "Glaus Marcel" }] }
+    },
+    "2019": {
+      "1": { "rank": 1, "players": [{ "name": "Fotsch Claudia" }, { "name": "Zuber Silvan" }] },
+      "2": { "rank": 2, "players": [{ "name": "Gäumann Sandra" }, { "name": "Maurer Thomas" }] },
+      "3": { "rank": 3, "players": [{ "name": "Ammann Beatrix" }, { "name": "Salzgeber Pascal" }] }
+    },
+    "2021": {
+      "1": { "rank": 1, "players": [{ "name": "Kubiatowicz Cindy" }, { "name": "Salzgeber Pascal" }] },
+      "2": { "rank": 2, "players": [{ "name": "Ammann Beatrix" }, { "name": "Glaus Marcel" }] },
+      "3": { "rank": 3, "players": [{ "name": "Fotsch Claudia" }, { "name": "Zuber Silvan" }] }
+    },
+    "2022": {
+      "1": { "rank": 1, "players": [{ "name": "Krieg Natalie" }, { "name": "Felder Peter" }] },
+      "2": { "rank": 2, "players": [{ "name": "Mettler Dina" }, { "name": "Ziegler Thomas" }] },
+      "3": { "rank": 3, "players": [{ "name": "Zimmermann Christoph" }, { "name": "Sutter Michèle" }] }
+    },
+    "2023": {
+      "1": { "rank": 1, "players": [{ "name": "Täschler Divyam" }, { "name": "Gamper Philipp" }] },
+      "2": { "rank": 2, "players": [{ "name": "Krieg Natalie" }, { "name": "Devaud Tristan" }] },
+      "3": { "rank": 3, "players": [{ "name": "Küng Jenny" }, { "name": "Karadzi Bersit" }] }
+    },
+    "2024": {
+      "1": { "rank": 1, "players": [{ "name": "Ammann Beatrix" }, { "name": "Glaus Marcel" }] },
+      "2": { "rank": 2, "players": [{ "name": "Meisterhans Judith" }, { "name": "Zimmermann Christoph" }] },
+      "3": { "rank": 3, "players": [{ "name": "Morgenthaler Luana" }, { "name": "Zuber Silvan" }] }
+    },
+    "2016-1": {
+      "1": { "rank": 1, "players": [{ "name": "Gäumann Sandra" }, { "name": "Wallimann Hannes" }] },
+      "2": { "rank": 2, "players": [{ "name": "Stillhard Nicole" }, { "name": "Noel Dominique" }] },
+      "3": { "rank": 3, "players": [{ "name": "Mettler Dina" }, { "name": "Santo Fabio Di" }] }
+    },
+    "2016-2": {
+      "1": { "rank": 1, "players": [{ "name": "Siegenthaler Ramona" }, { "name": "Kunz Florian" }] },
+      "2": { "rank": 2, "players": [{ "name": "Kubiatowicz Cindy" }, { "name": "Kubiatowicz Filip" }] },
+      "3": { "rank": 3, "players": [{ "name": "Gäumann Sandra" }, { "name": "Wallimann Hannes" }] }
+    }
+  },
+  "Senior Doubles": {
+    "2015": {
+      "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }, { "name": "Rodel Hans" }] },
+      "2": { "rank": 2, "players": [{ "name": "Spreiter Mathias" }, { "name": "Strassnig Walter" }] },
+      "3": { "rank": 3, "players": [{ "name": "-" }] }
+    },
+    "2021": {
+      "1": { "rank": 1, "players": [{ "name": "Strassnig Walter" }, { "name": "Fritsche Herrmann" }] },
+      "2": { "rank": 2, "players": [{ "name": "Kropf Bernhard" }, { "name": "Kropf Hansueli" }] },
+      "3": { "rank": 3, "players": [{ "name": "Gysin Hans" }, { "name": "Pasang Tobgyal" }] }
+    },
+    "2022": {
+      "1": { "rank": 1, "players": [{ "name": "Frey Hiawatha" }, { "name": "Riedo Martin" }] },
+      "2": { "rank": 2, "players": [{ "name": "Kropf Hansueli" }, { "name": "Caviezel Mirjam" }] },
+      "3": { "rank": 3, "players": [{ "name": "Frieden Stefan" }, { "name": "Sallin Bernard" }] }
+    },
+    "2023": {
+      "1": { "rank": 1, "players": [{ "name": "Frey Hiawatha" }, { "name": "Riedo Martin" }] },
+      "2": { "rank": 2, "players": [{ "name": "Fritsche Hermann" }, { "name": "Aviles Javier" }] },
+      "3": { "rank": 3, "players": [{ "name": "Giorgino Roberto" }, { "name": "Pomponi Christian" }] }
+    },
+    "2024": {
+      "1": { "rank": 1, "players": [{ "name": "Frey Hiawatha" }, { "name": "Fritsche Hermann" }] },
+      "2": { "rank": 2, "players": [{ "name": "Frieden Stephan" }, { "name": "Kropf Hansueli" }] },
+      "3": { "rank": 3, "players": [{ "name": "Beyeler Paul" }, { "name": "Sallin Bernard" }] }
+    },
+    "2016-1": {
+      "1": { "rank": 1, "players": [{ "name": "Perrin Florian" }, { "name": "Perrin Herbert" }] },
+      "2": { "rank": 2, "players": [{ "name": "Prisi Roland" }, { "name": "Kuonen Egon" }] },
+      "3": { "rank": 3, "players": [{ "name": "Perrin Yvan" }, { "name": "Perrin Eric" }] }
+    },
+    "2016-2": {
+      "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }, { "name": "Rodel Hans" }] },
+      "2": { "rank": 2, "players": [{ "name": "Schükerk Bert" }, { "name": "Strassnig Walter" }] },
+      "3": { "rank": 3, "players": [{ "name": "-" }] }
+    }
+  },
+  "Senior Singles": {
+    "2015": {
+      "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }] },
+      "2": { "rank": 2, "players": [{ "name": "Schükerk Bert" }] },
+      "3": { "rank": 3, "players": [{ "name": "Strassnig Walter" }] }
+    },
+    "2017": {
+      "1": { "rank": 1, "players": [{ "name": "Kuonen Egon" }] },
+      "2": { "rank": 2, "players": [{ "name": "Schükerk Bert" }] },
+      "3": { "rank": 3, "players": [{ "name": "Burgener Francisco" }] }
+    },
+    "2021": {
+      "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }] },
+      "2": { "rank": 2, "players": [{ "name": "Kropf Hansueli" }] },
+      "3": { "rank": 3, "players": [{ "name": "Kiener Andreas" }] }
+    },
+    "2022": {
+      "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }] },
+      "2": { "rank": 2, "players": [{ "name": "Fritsche Herrmann" }] },
+      "3": { "rank": 3, "players": [{ "name": "Frieden Stephan" }] }
+    },
+    "2023": {
+      "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }] },
+      "2": { "rank": 2, "players": [{ "name": "Fritsche Herrmann" }] },
+      "3": { "rank": 3, "players": [{ "name": "Pomponi Christian" }] }
+    },
+    "2024": {
+      "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }] },
+      "2": { "rank": 2, "players": [{ "name": "Fritsche Hermann" }] },
+      "3": { "rank": 3, "players": [{ "name": "Frieden Stephan" }] }
+    },
+    "2016-1": {
+      "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }] },
+      "2": { "rank": 2, "players": [{ "name": "Perrin Florian" }] },
+      "3": { "rank": 3, "players": [{ "name": "Burgener Francisco" }] }
+    },
+    "2016-2": {
+      "1": { "rank": 1, "players": [{ "name": "Prisi Roland" }] },
+      "2": { "rank": 2, "players": [{ "name": "Strassnig Walter" }] },
+      "3": { "rank": 3, "players": [{ "name": "-" }] }
+    }
+  },
+  "Junior Doubles": {
+    "2015": {
+      "1": { "rank": 1, "players": [{ "name": "Wahl Florian" }, { "name": "Felder Martin H." }] },
+      "2": { "rank": 2, "players": [{ "name": "Millius Matthias" }, { "name": "Eyer Kevin" }] },
+      "3": { "rank": 3, "players": [{ "name": "-" }] }
+    },
+    "2019": {
+      "1": { "rank": 1, "players": [{ "name": "Innocente Samira" }, { "name": "Zgraggen Seya" }] },
+      "2": { "rank": 2, "players": [{ "name": "Riva Gianni" }, { "name": "Riva Valentino" }] },
+      "3": { "rank": 3, "players": [{ "name": "van Stokkum Rayan" }, { "name": "Karadzi Belmin" }] }
+    },
+    "2021": {
+      "1": { "rank": 1, "players": [{ "name": "van Stokkum Rayan" }, { "name": "Karadzi Belmin" }] },
+      "2": { "rank": 2, "players": [{ "name": "Riva Gianni" }, { "name": "Riva Valentino" }] },
+      "3": { "rank": 3, "players": [{ "name": "Karadzi Rayla" }, { "name": "Maksuti Elian" }] }
+    },
+    "2022": {
+      "1": { "rank": 1, "players": [{ "name": "Brogli Kaya" }, { "name": "Riva Gianni" }] },
+      "2": { "rank": 2, "players": [{ "name": "van Stokkum Rayan" }, { "name": "Burri Simona" }] },
+      "3": { "rank": 3, "players": [{ "name": "Friedli Nino" }, { "name": "Nebiker Linus" }] }
+    },
+    "2023": {
+      "1": { "rank": 1, "players": [{ "name": "Karadzi Belmin" }, { "name": "Karajan Theodor" }] },
+      "2": { "rank": 2, "players": [{ "name": "Riva Gianni" }, { "name": "van Stokkum Rayan" }] },
+      "3": { "rank": 3, "players": [{ "name": "Brogli Kaya" }, { "name": "Burri Simona" }] }
+    },
+    "2024": {
+      "1": { "rank": 1, "players": [{ "name": "van Stokkum Rayan" }, { "name": "Friedli Nino" }] },
+      "2": { "rank": 2, "players": [{ "name": "Karajan Theodor" }, { "name": "Karadzi Belmin" }] },
+      "3": { "rank": 3, "players": [{ "name": "Brogli Kaya" }, { "name": "Karadzi Rayla" }] }
+    },
+    "2016-1": {
+      "1": { "rank": 1, "players": [{ "name": "Rumo Mike" }, { "name": "Eyer Kevin" }] },
+      "2": { "rank": 2, "players": [{ "name": "Bücheli Janine" }, { "name": "Ferreira Michel" }] },
+      "3": { "rank": 3, "players": [{ "name": "-" }] }
+    },
+    "2016-2": {
+      "1": { "rank": 1, "players": [{ "name": "Rumo Mike" }, { "name": "Eyer Kevin" }] },
+      "2": { "rank": 2, "players": [{ "name": "Bücheli Janine" }, { "name": "Wahl Florian" }] },
+      "3": { "rank": 3, "players": [{ "name": "Reinwald Daniel" }, { "name": "Anderhalden Philipp" }] }
+    }
+  },
+  "Junior Singles": {
+    "2015": {
+      "1": { "rank": 1, "players": [{ "name": "Felder Martin H." }] },
+      "2": { "rank": 2, "players": [{ "name": "Wahl Florian" }] },
+      "3": { "rank": 3, "players": [{ "name": "Millius Matthias" }] }
+    },
+    "2017": {
+      "1": { "rank": 1, "players": [{ "name": "Rumo Mike" }] },
+      "2": { "rank": 2, "players": [{ "name": "Barmettler Raphael" }] },
+      "3": { "rank": 3, "players": [{ "name": "Innocente Samira" }] }
+    },
+    "2022": {
+      "1": { "rank": 1, "players": [{ "name": "van Stokkum Rayan" }] },
+      "2": { "rank": 2, "players": [{ "name": "Riva Gianni" }] },
+      "3": { "rank": 3, "players": [{ "name": "Stanojkov Kristiano" }] }
+    },
+    "2023": {
+      "1": { "rank": 1, "players": [{ "name": "van Stokkum Rayan" }] },
+      "2": { "rank": 2, "players": [{ "name": "Friedli Nino" }] },
+      "3": { "rank": 3, "players": [{ "name": "Brogli Kaya" }] }
+    },
+    "2024": {
+      "1": { "rank": 1, "players": [{ "name": "van Stokkum Rayan" }] },
+      "2": { "rank": 2, "players": [{ "name": "Friedli Nino" }] },
+      "3": { "rank": 3, "players": [{ "name": "Brogli Kaya" }] }
+    },
+    "2016-1": {
+      "1": { "rank": 1, "players": [{ "name": "Eyer Kevin" }] },
+      "2": { "rank": 2, "players": [{ "name": "Rumo Mike" }] },
+      "3": { "rank": 3, "players": [{ "name": "Bücheli Janine" }] }
+    },
+    "2016-2": {
+      "1": { "rank": 1, "players": [{ "name": "Eyer Kevin" }] },
+      "2": { "rank": 2, "players": [{ "name": "Wahl Florian" }] },
+      "3": { "rank": 3, "players": [{ "name": "Rumo Mike" }] }
+    }
+  }
+}

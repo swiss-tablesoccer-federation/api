@@ -65,6 +65,8 @@ function proxy_request(string $apiUrl, ?string $payload = null): void
     exit;
 }
 
+require_once __DIR__ . '/hall-of-fame.php';
+
 $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 $path = '/' . trim($path, '/');
 
@@ -100,6 +102,9 @@ switch ($path) {
     case '/members':
         proxy_request('https://api.tablesoccer.org/cms.members', json_encode(['organization' => 'STF']) );
         break;
+
+    case '/hall-of-fame':
+        handle_hall_of_fame_request();
 
     default:
         http_response_code(404);
