@@ -7,7 +7,8 @@ header('Content-Type: application/json');
 $allowed_origins = [
     'https://tournaments.swisstablesoccer.ch',
     'http://localhost:5500',
-    'http://127.0.0.1:5500'
+    'http://127.0.0.1:5500',
+    'http://127.0.0.1:8000'
 ];
 
 $origin = $_SERVER['HTTP_ORIGIN'] ?? '';
@@ -67,33 +68,43 @@ function proxy_request(string $apiUrl, ?string $payload = null): void
 $path = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 $path = '/' . trim($path, '/');
 
-if ($path === '/') {
-    echo json_encode(['api' => 'Swiss Tablesoccer Federation']);
-    exit;
-}
+switch ($path) {
+    case '/':
+        echo json_encode(['api' => 'Swiss Tablesoccer Federation']);
+        exit;
 
-if ($path === '/tournaments') {
-    proxy_request('https://api.tablesoccer.org/cms.tournaments?tour=78');
-}
+    case '/tournaments':
+        proxy_request('https://api.tablesoccer.org/cms.tournaments?tour=78');
+        break;
 
-if (preg_match('#^/rankings/([^/]+)$#', $path, $matches)) {
-    $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
-    $categoryMap = [
-        'OS' => 308, 'JS' => 309, 'WS' => 310, 'SS' => 311,
-        'OD' => 312, 'JD' => 313, 'WD' => 314, 'SD' => 315,
-        'MX' => 316, 'OC' => 322,
-    ];
-    $categoryKey = strtoupper($matches[1]);
-    $category = isset($categoryMap[$categoryKey]) ? $categoryMap[$categoryKey] : null;
-    $payload = json_encode(array_filter(
-        ['tour' => 78, 'page' => $page, 'category' => $category],
-        fn($v) => $v !== null
-    ));
-    proxy_request('https://api.tablesoccer.org/cms.rankings', $payload);
-}
+    case (preg_match('#^/rankings/([^/]+)$#', $path, $matches) ? true : false):
+        $page = isset($_GET['page']) ? (int) $_GET['page'] : 1;
+        $categoryMap = [
+            'OS' => 308, 'JS' => 309, 'WS' => 310, 'SS' => 311,
+            'OD' => 312, 'JD' => 313, 'WD' => 314, 'SD' => 315,
+            'MX' => 316, 'OC' => 322,
+        ];
+        $categoryKey = strtoupper($matches[1]);
+        $category = isset($categoryMap[$categoryKey]) ? $categoryMap[$categoryKey] : null;
+        $payload = json_encode(array_filter(
+            ['tour' => 78, 'page' => $page, 'category' => $category],
+            fn($v) => $v !== null
+        ));
+        proxy_request('https://api.tablesoccer.org/cms.rankings', $payload);
+        break;
 
-if ($path === '/committees') {
-    proxy_request('https://api.tablesoccer.org/cms.committees?organization=STF');
+    case '/committees':
+        proxy_request('https://api.tablesoccer.org/cms.committees?organization=STF');
+        break;
+
+    case '/members':
+        proxy_request('https://api.tablesoccer.org/cms.members', json_encode(['organization' => 'STF']) );
+        break;
+
+    default:
+        http_response_code(404);
+        echo json_encode(['error' => 'Not Found']);
+        exit;
 }
 
 http_response_code(404);
